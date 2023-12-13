@@ -1,17 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../../../shared/models/pokemon';
+import { PokemonService } from '../../../shared/services/pokemon/pokemon.service';
 
 @Component({
   selector: 'pokedex-all-pokemon',
   templateUrl: './all-pokemon.component.html',
   styleUrl: './all-pokemon.component.scss'
 })
-export class AllPokemonComponent {
-  allPokemon: Pokemon[] = [
-    { name: "Bulbusaur", type: "grass" },
-    { name: "Charmander", type: "fire" },
-    { name: "Squirtle", type: "water" }
-  ];
+export class AllPokemonComponent implements OnInit {
+  allPokemon: Pokemon[] = [];
+
+  constructor(private pokemonService: PokemonService) { }
+
+  ngOnInit(): void {
+    this.allPokemon = this.pokemonService.getAllPokemon();
+  }
 
   pokemonCaught(pokemon: Pokemon) {
     console.log("Caught pokemon: ", pokemon);
