@@ -1,17 +1,25 @@
-<table>
+<table class="table">
   <thead>
     <tr>
-      <td>Name</td>
-      <td>Type</td>
-      <td>Caught</td>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Type</th>
+      <th scope="col">Caught</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let p of pokemon">
+    <tr *ngFor="let p of pokemon; index as i">
+      <th scope="row">{{ i }}</th>
       <td>{{ p.name }}</td>
       <td>{{ p.type }}</td>
       <td>
-        <button (click)="onCaughtClicked(p)">Caught!</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="onCaughtClicked(p)"
+        >
+          Caught!
+        </button>
       </td>
     </tr>
   </tbody>
