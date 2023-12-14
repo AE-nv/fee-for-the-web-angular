@@ -18,6 +18,6 @@ export class AllPokemonComponent implements OnInit {
   }
 
   catchPokemon(pokemon: Pokemon) {
-    this.pokemonService.catchPokemon(pokemon.id);
+    this.pokemonService.catchPokemon(pokemon.id).subscribe();
   }
 }

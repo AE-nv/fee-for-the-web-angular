@@ -18,6 +18,6 @@ export class MyPokemonComponent implements OnInit {
   }
 
   releasePokemon(pokemon: Pokemon) {
-    this.pokemonService.releasePokemon(pokemon.id);
+    this.pokemonService.releasePokemon(pokemon.id).subscribe();
   }
 }

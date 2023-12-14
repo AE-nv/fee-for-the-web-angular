@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Pokemon } from '../../models/pokemon';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment.development';
-import { EMPTY, Observable, catchError, map, tap } from 'rxjs';
+import { EMPTY, Observable, catchError, map, take, tap } from 'rxjs';
 import { MessageService } from '../message/message.service';
 
 @Injectable({
@@ -14,22 +14,27 @@ export class PokemonService {
   constructor(private _http: HttpClient, private _messageService: MessageService) { }
 
   getAllPokemon(): Observable<Pokemon[]> {
-    return this._http.get<Pokemon[]>(`${this._baseUrl}/pokemon`).pipe(catchError((err) => {
-      this._messageService.showApiError(err);
-      return EMPTY;
-    }));
+    return this._http.get<Pokemon[]>(`${this._baseUrl}/pokemon`).pipe(
+      take(1),
+      catchError((err) => {
+        this._messageService.showApiError(err);
+        return EMPTY;
+      }));
   }
 
   getMyPokemon(): Observable<Pokemon[]> {
-    return this._http.get<Pokemon[]>(`${this._baseUrl}/pokemon/caught`).pipe(catchError((err) => {
-      this._messageService.showApiError(err);
-      return EMPTY;
-    }));
+    return this._http.get<Pokemon[]>(`${this._baseUrl}/pokemon/caught`).pipe(
+      take(1),
+      catchError((err) => {
+        this._messageService.showApiError(err);
+        return EMPTY;
+      }));
   }
 
   catchPokemon(id: number): Observable<Pokemon> {
     return this._http.post<Pokemon>(`${this._baseUrl}/pokemon/${id}/catch`, undefined).pipe(
-      tap(this._messageService.showCaughtPokemonSuccess),
+      take(1),
+      tap((pokemon) => this._messageService.showCaughtPokemonSuccess(pokemon)),
       catchError((err) => {
         this._messageService.showApiError(err);
         return EMPTY;
@@ -38,7 +43,8 @@ export class PokemonService {
 
   releasePokemon(id: number): Observable<Pokemon> {
     return this._http.post<Pokemon>(`${this._baseUrl}/pokemon/${id}/release`, undefined).pipe(
-      tap(this._messageService.showReleasedPokemonSuccess),
+      take(1),
+      tap((pokemon) => this._messageService.showCaughtPokemonSuccess(pokemon)),
       catchError((err) => {
         this._messageService.showApiError(err);
         return EMPTY;
