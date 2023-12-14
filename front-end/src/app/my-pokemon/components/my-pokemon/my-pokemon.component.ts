@@ -9,12 +9,12 @@ import { PokemonService } from '../../../shared/services/pokemon/pokemon.service
   styleUrl: './my-pokemon.component.scss'
 })
 export class MyPokemonComponent implements OnInit {
-  allPokemon$?: Observable<Pokemon[]>;
+  myPokemon$?: Observable<Pokemon[]>;
 
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
-    this.allPokemon$ = this.pokemonService.getAllPokemon();
+    this.myPokemon$ = this.pokemonService.getMyPokemon();
   }
 
   releasePokemon(pokemon: Pokemon) {

@@ -14,6 +14,9 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     MyPokemonRoutingModule,
     SharedModule
+  ],
+  exports: [
+    MyPokemonComponent
   ]
 })
 export class MyPokemonModule { }

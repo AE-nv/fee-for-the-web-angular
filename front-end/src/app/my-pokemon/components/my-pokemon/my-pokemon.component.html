@@ -1,6 +1,6 @@
 <pokedex-pokemon-list
-  *ngIf="allPokemon$ | async as allPokemon"
-  [pokemon]="allPokemon"
+  *ngIf="myPokemon$ | async as myPokemon"
+  [pokemon]="myPokemon"
   actionLabel="Release!"
   (clicked)="releasePokemon($event)"
 ></pokedex-pokemon-list>
