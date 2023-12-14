@@ -1,4 +1,6 @@
-[
+import { Pokemon } from "src/models/pokemon";
+
+export let pokemon: Pokemon[] =  [
   {
     "id": 1,
     "caught": true,
