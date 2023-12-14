@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Pokemon } from '../../models/pokemon';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment.development';
-import { EMPTY, Observable, catchError, map, take, tap } from 'rxjs';
+import { EMPTY, Observable, catchError, take, tap } from 'rxjs';
 import { MessageService } from '../message/message.service';
 
 @Injectable({
