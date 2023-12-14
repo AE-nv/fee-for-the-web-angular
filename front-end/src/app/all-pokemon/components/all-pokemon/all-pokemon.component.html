@@ -1,6 +1,6 @@
 <pokedex-pokemon-list
   *ngIf="allPokemon$ | async as allPokemon"
   [pokemon]="allPokemon"
-  actionLabel="Catch!"
+  [actionLabel]="'POKEMON.ACTIONS.CATCH' | translate"
   (clicked)="catchPokemon($event)"
 ></pokedex-pokemon-list>
