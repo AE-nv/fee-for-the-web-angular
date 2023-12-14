@@ -14,7 +14,7 @@ export class AppService {
   getCaughtPokemon(): Pokemon[] {
     return this.pokemon.filter(p => p.caught)
   }
-  updatePokemonCaughtStatus(id: number, caught: boolean): void {
+  updatePokemonCaughtStatus(id: number, caught: boolean): Pokemon {
     let pokemon: Pokemon = this.pokemon.find((p) => p.id == id);
 
     if (pokemon === undefined) {
@@ -22,5 +22,6 @@ export class AppService {
     }
 
     pokemon.caught = caught;
+    return pokemon;
   }
 }
