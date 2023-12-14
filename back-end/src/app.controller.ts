@@ -18,14 +18,14 @@ export class AppController {
 
   @Post(':id/catch')
   @HttpCode(200)
-  catchPokemon(@Param('id') id: number) {
+  catchPokemon(@Param('id') id: number): Pokemon {
     return this.appService.updatePokemonCaughtStatus(id, true);
   }
 
   @Post(':id/release')
   @HttpCode(200)
-  releasePokemon(@Param('id') id: number) {
-    this.appService.updatePokemonCaughtStatus(id, false);
+  releasePokemon(@Param('id') id: number): Pokemon {
+    return this.appService.updatePokemonCaughtStatus(id, false);
   }
 }
 
