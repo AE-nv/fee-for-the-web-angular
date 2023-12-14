@@ -1,12 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 
 import { PokemonService } from './pokemon.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 describe('PokemonService', () => {
   let service: PokemonService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule, ToastrModule.forRoot()],
+      providers: [ToastrService]
+    });
     service = TestBed.inject(PokemonService);
   });
 
