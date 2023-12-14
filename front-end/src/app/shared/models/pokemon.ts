@@ -1,4 +1,9 @@
 export interface Pokemon {
+    id: number;
+    caught: boolean;
     name: string;
-    type: string;
+    types: string[];
+    height: number;
+    weight: number;
+    description: string;
 }

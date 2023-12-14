@@ -1,4 +1,5 @@
 <pokedex-pokemon-list
-  [pokemon]="allPokemon$ | async"
+  *ngIf="allPokemon$ | async as allPokemon"
+  [pokemon]="allPokemon"
   (clicked)="pokemonCaught($event)"
 ></pokedex-pokemon-list>

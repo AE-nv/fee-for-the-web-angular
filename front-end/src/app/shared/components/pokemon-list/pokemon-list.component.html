@@ -2,16 +2,18 @@
   <thead>
     <tr>
       <th scope="col">#</th>
+      <th scope="col">Image</th>
       <th scope="col">Name</th>
       <th scope="col">Type</th>
       <th scope="col">Caught</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let p of pokemon; index as i">
-      <th scope="row">{{ i }}</th>
+    <tr *ngFor="let p of pokemon">
+      <th scope="row">{{ p.id }}</th>
+      <td><img [src]="getImageUrl(p.id)" [alt]="p.name" class="sprite" /></td>
       <td>{{ p.name }}</td>
-      <td>{{ p.type }}</td>
+      <td>{{ p.types.join(", ") }}</td>
       <td>
         <button
           type="button"

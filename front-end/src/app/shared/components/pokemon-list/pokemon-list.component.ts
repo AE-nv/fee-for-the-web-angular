@@ -7,11 +7,15 @@ import { Pokemon } from '../../models/pokemon';
   styleUrl: './pokemon-list.component.scss'
 })
 export class PokemonListComponent {
-  @Input() pokemon: Pokemon[] | null = [];
+  @Input() pokemon: Pokemon[] = [];
 
   @Output() clicked = new EventEmitter<Pokemon>();
 
   onCaughtClicked(pokemon: Pokemon) {
     this.clicked.emit(pokemon);
+  }
+
+  getImageUrl(id: number) {
+    return `assets/sprites/${id}.png`;
   }
 }
