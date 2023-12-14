@@ -19,4 +19,11 @@ export class PokemonService {
       return EMPTY;
     }));
   }
+
+  getMyPokemon(): Observable<Pokemon[]> {
+    return this._http.get<Pokemon[]>(`${this._baseUrl}/pokemon/caught`).pipe(catchError((err) => {
+      this._messageService.showApiError(err);
+      return EMPTY;
+    }));
+  }
 }

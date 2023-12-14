@@ -21,4 +21,10 @@ export class MessageService {
       timeOut: 5000,
     });
   }
+
+  showReleasedPokemonSuccess(pokemon: Pokemon) {
+    this._toastr.success(pokemon.description, `Released ${pokemon.name}!`, {
+      timeOut: 5000,
+    });
+  }
 }

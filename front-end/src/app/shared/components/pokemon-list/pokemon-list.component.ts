@@ -8,6 +8,7 @@ import { Pokemon } from '../../models/pokemon';
 })
 export class PokemonListComponent {
   @Input() pokemon: Pokemon[] = [];
+  @Input() actionLabel?: string;
 
   @Output() clicked = new EventEmitter<Pokemon>();
 
