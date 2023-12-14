@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../../../shared/models/pokemon';
 import { PokemonService } from '../../../shared/services/pokemon/pokemon.service';
 import { Observable } from 'rxjs';
-import { MessageService } from '../../../shared/services/message/message.service';
 
 @Component({
   selector: 'pokedex-all-pokemon',
@@ -12,13 +11,13 @@ import { MessageService } from '../../../shared/services/message/message.service
 export class AllPokemonComponent implements OnInit {
   allPokemon$?: Observable<Pokemon[]>;
 
-  constructor(private pokemonService: PokemonService, private messageService: MessageService) { }
+  constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
     this.allPokemon$ = this.pokemonService.getAllPokemon();
   }
 
-  pokemonCaught(pokemon: Pokemon) {
-    this.messageService.showCaughtPokemonSuccess(pokemon);
+  catchPokemon(pokemon: Pokemon) {
+    this.pokemonService.catchPokemon(pokemon.id);
   }
 }

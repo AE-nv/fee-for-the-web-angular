@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Pokemon } from '../../../shared/models/pokemon';
-import { MessageService } from '../../../shared/services/message/message.service';
 import { PokemonService } from '../../../shared/services/pokemon/pokemon.service';
 
 @Component({
@@ -12,13 +11,13 @@ import { PokemonService } from '../../../shared/services/pokemon/pokemon.service
 export class MyPokemonComponent implements OnInit {
   allPokemon$?: Observable<Pokemon[]>;
 
-  constructor(private pokemonService: PokemonService, private messageService: MessageService) { }
+  constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
     this.allPokemon$ = this.pokemonService.getAllPokemon();
   }
 
-  pokemonReleased(pokemon: Pokemon) {
-    this.messageService.showReleasedPokemonSuccess(pokemon);
+  releasePokemon(pokemon: Pokemon) {
+    this.pokemonService.releasePokemon(pokemon.id);
   }
 }

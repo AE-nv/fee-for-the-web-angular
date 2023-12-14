@@ -2,5 +2,5 @@
   *ngIf="allPokemon$ | async as allPokemon"
   [pokemon]="allPokemon"
   actionLabel="Release!"
-  (clicked)="pokemonReleased($event)"
+  (clicked)="releasePokemon($event)"
 ></pokedex-pokemon-list>
