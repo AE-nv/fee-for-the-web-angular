@@ -26,7 +26,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     TranslateModule.forRoot({
-      defaultLanguage: 'en',
+      defaultLanguage: 'nl',
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -6,13 +6,14 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit {
-  title = 'my-pokedex';
+export class AppComponent {
+  constructor(private _translate: TranslateService) { }
 
-  constructor(private _translateService: TranslateService) { }
+  get otherLanguage(): string {
+    return this._translate.currentLang === 'en' ? 'nl' : 'en';
+  }
 
-  ngOnInit() {
-    // this._translateService.setDefaultLang('en');
-    this._translateService.use('nl');
+  toggleLanguage() {
+    this._translate.use(this.otherLanguage);
   }
 }
