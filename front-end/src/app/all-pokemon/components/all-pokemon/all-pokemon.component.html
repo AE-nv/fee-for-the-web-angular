@@ -1,4 +1,4 @@
 <pokedex-pokemon-list
-  [pokemon]="allPokemon"
+  [pokemon]="allPokemon$ | async"
   (clicked)="pokemonCaught($event)"
 ></pokedex-pokemon-list>

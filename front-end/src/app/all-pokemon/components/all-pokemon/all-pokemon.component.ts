@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../../../shared/models/pokemon';
 import { PokemonService } from '../../../shared/services/pokemon/pokemon.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'pokedex-all-pokemon',
@@ -8,12 +9,12 @@ import { PokemonService } from '../../../shared/services/pokemon/pokemon.service
   styleUrl: './all-pokemon.component.scss'
 })
 export class AllPokemonComponent implements OnInit {
-  allPokemon: Pokemon[] = [];
+  allPokemon$?: Observable<Pokemon[]>;
 
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
-    this.allPokemon = this.pokemonService.getAllPokemon();
+    this.allPokemon$ = this.pokemonService.getAllPokemon();
   }
 
   pokemonCaught(pokemon: Pokemon) {

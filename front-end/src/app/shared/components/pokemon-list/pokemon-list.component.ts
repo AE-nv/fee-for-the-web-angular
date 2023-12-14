@@ -7,7 +7,7 @@ import { Pokemon } from '../../models/pokemon';
   styleUrl: './pokemon-list.component.scss'
 })
 export class PokemonListComponent {
-  @Input() pokemon: Pokemon[] = [];
+  @Input() pokemon: Pokemon[] | null = [];
 
   @Output() clicked = new EventEmitter<Pokemon>();
 
