@@ -3,11 +3,13 @@ import { Pokemon } from '../../models/pokemon';
 
 @Component({
   selector: 'pokedex-pokemon-list',
+  imports: [],
   templateUrl: './pokemon-list.component.html',
   styleUrl: './pokemon-list.component.scss'
 })
 export class PokemonListComponent {
   @Input() pokemon: Pokemon[] = [];
+
 
   @Output() clicked = new EventEmitter<Pokemon>();
 

@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { Pokemon } from '../../../shared/models/pokemon';
+import { Pokemon } from '../../shared/models/pokemon';
+import { PokemonListComponent } from '../../shared/components/pokemon-list/pokemon-list.component';
 
 @Component({
   selector: 'pokedex-all-pokemon',
+  imports: [PokemonListComponent, ],
   templateUrl: './all-pokemon.component.html',
   styleUrl: './all-pokemon.component.scss'
 })
