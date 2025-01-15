@@ -1,0 +1,33 @@
+<table>
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Type</td>
+        <td>Caught</td>
+      </tr>
+    </thead>
+    <tbody>
+
+      @for (p of pokemon; track p.name) {
+        <tr>
+          <td>{{ p.name }}</td>
+          <td>{{ p.type }}</td>
+          <td>
+            <button (click)="onCaughtClicked(p)">Caught!</button>
+          </td>
+        </tr>
+    
+
+      <tr>
+        <td>{{ p.name }}</td>
+        <td>{{ p.type }}</td>
+        <td>
+          <button (click)="onCaughtClicked(p)">Caught!</button>
+        </td>
+      </tr>
+    }@empty{
+      No pokemon to display
+     }
+    </tbody>
+  </table>
+  
