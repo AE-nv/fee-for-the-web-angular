@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Pokemon } from '../../models/pokemon';
+import { Pokemon } from '../models/pokemon';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonService {
+
   allPokemon: Pokemon[] = [
     { name: "Bulbusaur", type: "grass" },
     { name: "Charmander", type: "fire" },
@@ -13,5 +14,4 @@ export class PokemonService {
 
   getAllPokemon(): Pokemon[] {
     return this.allPokemon;
-  }
-}
+  }}
