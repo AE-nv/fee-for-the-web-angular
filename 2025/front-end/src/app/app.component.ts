@@ -4,7 +4,7 @@ import { AllPokemonComponent } from './components/all-pokemon/all-pokemon.compon
 
 @Component({
   selector: 'app-root',
-  imports: [AllPokemonComponent],
+  imports: [RouterOutlet, AllPokemonComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

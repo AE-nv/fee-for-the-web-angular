@@ -1,33 +1,25 @@
-<table>
-    <thead>
-      <tr>
-        <td>Name</td>
-        <td>Type</td>
-        <td>Caught</td>
-      </tr>
-    </thead>
-    <tbody>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Type</th>
+      <th scope="col">Caught</th>
+    </tr>
+  </thead>
+  <tbody>
 
-      @for (p of pokemon; track p.name) {
-        <tr>
-          <td>{{ p.name }}</td>
-          <td>{{ p.type }}</td>
-          <td>
-            <button (click)="onCaughtClicked(p)">Caught!</button>
-          </td>
-        </tr>
-    
-
-      <tr>
-        <td>{{ p.name }}</td>
-        <td>{{ p.type }}</td>
-        <td>
-          <button (click)="onCaughtClicked(p)">Caught!</button>
-        </td>
-      </tr>
-    }@empty{
-      No pokemon to display
-     }
-    </tbody>
-  </table>
-  
+    @for (p of pokemon; track p.name) {
+    <tr>
+      <th scope="row">{{ $count }}</th>
+      <td>{{ p.name }}</td>
+      <td>{{ p.type }}</td>
+      <td>
+        <button type="button" class="btn btn-primary" (click)="onCaughtClicked(p)">
+          Caught!
+        </button>
+      </td>
+    </tr> }@empty{
+    No pokemon to display
+    }
+</table>
