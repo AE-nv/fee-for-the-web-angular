@@ -1,0 +1,27 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Image</th>
+      <th scope="col">Types</th>
+      <th scope="col">Caught</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    @for (p of pokemon; track p.name) {
+    <tr>
+      <th scope="row">{{ $index + 1 }}</th>
+      <td>{{ p.name }}</td>
+      <td><img [src]="getImageUrl(p.id)"/> </td>
+      <td>{{ p.types }}</td>
+      <td>
+        <button type="button" class="btn btn-primary" (click)="onCaughtClicked(p)">
+          Caught!
+        </button>
+      </td>
+    </tr> }@empty{
+    No pokemon to display
+    }
+</table>
