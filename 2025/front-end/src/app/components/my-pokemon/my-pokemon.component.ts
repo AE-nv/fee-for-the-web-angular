@@ -4,10 +4,11 @@ import { Observable } from 'rxjs';
 import { PokemonService } from '../../shared/services/pokemon.service';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { PokemonListComponent } from "../../shared/components/pokemon-list/pokemon-list.component";
+import {TranslatePipe, TranslateDirective} from "@ngx-translate/core";
 
 @Component({
   selector: 'pokedex-my-pokemon',
-  imports: [NgIf, PokemonListComponent, AsyncPipe],
+  imports: [NgIf, PokemonListComponent, AsyncPipe, TranslatePipe],
   templateUrl: './my-pokemon.component.html',
   styleUrl: './my-pokemon.component.scss'
 })

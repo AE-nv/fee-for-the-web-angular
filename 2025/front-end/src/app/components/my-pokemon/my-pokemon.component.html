@@ -1,6 +1,6 @@
 <pokedex-pokemon-list
   *ngIf="myPokemon$ | async as myPokemon"
   [pokemon]="myPokemon"
-  actionLabel="Release!"
+  [actionLabel]="'POKEMON.ACTIONS.RELEASE' | translate"
   (clicked)="releasePokemon($event)"
 ></pokedex-pokemon-list>
