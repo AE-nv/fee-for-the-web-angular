@@ -1,15 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Pokemon } from '../../shared/models/pokemon';
 import { HttpClient } from '@angular/common/http';
-<<<<<<< HEAD:front-end/src/app/shared/services/pokemon/pokemon.service.ts
-import { environment } from '../../../../environments/environment.development';
-import { EMPTY, Observable, catchError, map, take, tap } from 'rxjs';
-import { MessageService } from '../message/message.service';
-=======
+import { EMPTY, Observable, catchError, take, tap } from 'rxjs';
 import { environment } from '../../../assets/environments/environment.development';
-import { EMPTY, Observable, catchError } from 'rxjs';
 import { MessageService } from '../services/message/message.service';
->>>>>>> calling-apis:2025/front-end/src/app/shared/services/pokemon.service.ts
 
 @Injectable({
   providedIn: 'root'

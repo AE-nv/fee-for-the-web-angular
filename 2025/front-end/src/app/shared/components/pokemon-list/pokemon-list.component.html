@@ -5,7 +5,7 @@
       <th scope="col">Name</th>
       <th scope="col">Image</th>
       <th scope="col">Types</th>
-      <th scope="col">Caught</th>
+      <th scope="col">{{actionLabel}}</th>
     </tr>
   </thead>
   <tbody>
@@ -18,7 +18,7 @@
       <td>{{ p.types }}</td>
       <td>
         <button type="button" class="btn btn-primary" (click)="onCaughtClicked(p)">
-          Caught!
+        {{actionLabel}}
         </button>
       </td>
     </tr> }@empty{
