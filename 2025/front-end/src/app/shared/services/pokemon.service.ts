@@ -44,7 +44,7 @@ export class PokemonService {
   releasePokemon(id: number): Observable<Pokemon> {
     return this._http.post<Pokemon>(`${this._baseUrl}/pokemon/${id}/release`, undefined).pipe(
       take(1),
-      tap((pokemon) => this._messageService.showCaughtPokemonSuccess(pokemon)),
+      tap((pokemon) => this._messageService.showReleasedPokemonSuccess(pokemon)),
       catchError((err) => {
         this._messageService.showApiError(err);
         return EMPTY;
