@@ -3,7 +3,7 @@ import { AllPokemonComponent } from './components/all-pokemon/all-pokemon.compon
 import { MyPokemonComponent } from './components/my-pokemon/my-pokemon.component';
 
 export const routes: Routes = [
-    { path: '', component: AllPokemonComponent },
-    { path: 'mypokemon', component: MyPokemonComponent },
-    { path: '**', component: AllPokemonComponent },
+    { path: '', pathMatch: 'full', redirectTo: '/all-pokemon' },
+    { path: 'all-pokemon', component: AllPokemonComponent },
+    { path: 'my-pokemon', component: MyPokemonComponent },
 ];
